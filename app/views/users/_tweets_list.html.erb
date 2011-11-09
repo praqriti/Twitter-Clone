@@ -1,0 +1,16 @@
+<ul id="tweet_list">
+  <%- @tweets.each do |tweet| %>
+    <li>
+      <%- user = tweet.user %>
+      <%= link_to user, :title => user.username  do %>
+        <%= image_tag gravatar_url(user) %>
+      <% end %>
+      <%= tweet.text %>
+      <span class="time">
+        <%= time_ago_in_words tweet.created_at %> ago
+      </span>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @tweets %>

@@ -1,0 +1,14 @@
+<% title "Home" %>
+<h2>
+  What are you doing?
+</h2>
+<div id="tweet">
+  <%= form_for(@tweet, :url => tweet_user_path(current_user)) do |f| %>
+    <%= f.text_area :text, :rows => 3, :cols => 110 %>
+    <span id="tweet_length">
+      140
+    </span>
+    <%= submit_tag "Tweet", :id => "tweet_this" %>
+  <% end %>
+</div>
+<%= render :partial => "tweets_list" %>
